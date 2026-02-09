@@ -10,18 +10,32 @@
     "lastRunMode": "local"
   },
   "agents": {
-    "defaults": {
-      "model": {
-        "primary": "openai/gpt-4.1-nano"
-      },
+  "defaults": {
+    "model": {
+      "primary": "ollama/phi3"
+    }
+  }
+}   
       "models": {
-        "openai/gpt-5.1-codex": {
-          "alias": "GPT"
-        },
-        "openai/gpt-4-nano": {},
-        "openai/gpt-4": {},
-        "openai/gpt-4.1-nano": {}
-      },
+  "providers": {
+    "ollama": {
+      "baseUrl": "http://127.0.0.1:11434/v1",
+      "apiKey": "ollama-local",
+      "api": "openai-completions",
+      "models": [
+        {
+          "id": "phi3",
+          "name": "Phi-3-mini",
+          "reasoning": false,
+          "input": ["text"],
+          "cost": { "input": 0, "output": 0 },
+          "contextWindow": 128000,
+          "maxTokens": 8192
+        }
+      ]
+    }
+  }
+}   
       "workspace": "/root/.openclaw/workspace",
       "compaction": {
         "mode": "safeguard"
